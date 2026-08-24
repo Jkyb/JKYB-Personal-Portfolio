@@ -1,7 +1,10 @@
 # Kent Portfolio — Project Status / Handoff Notes
 
 > Read this first in any new session to pick up exactly where things left off.
-> Last updated: 2026-08-24
+> Last updated: 2026-08-24 (session 3: GitHub push + copy-to-clipboard contact fallback)
+
+**Repo:** https://github.com/Jkyb/JKYB-Personal-Portfolio (pushed by Kent directly via
+plain `git remote add` + `git push`, not the `gh` CLI). Branch: `main`.
 
 ## What this is
 
@@ -160,7 +163,7 @@ adding an image-optimization library as a permanent dependency.
 ```js
 email: "joelkentybruzo@gmail.com"        // real
 github: "https://github.com/Jkyb"        // real
-linkedin: "https://linkedin.com/in/TODO" // STILL A PLACEHOLDER — needs real URL
+linkedin: "https://www.linkedin.com/in/joel-kent-bruzo-175886301/" // real
 youtube: "https://www.youtube.com/@JKYB2.0" // real
 cv: null                                  // STILL MISSING — no CV file/link yet
 ```
@@ -171,6 +174,16 @@ cv: null                                  // STILL MISSING — no CV file/link y
   note), source = null
 - **PSU Campus 3D**: demo = Sketchfab model URL (real), source = null
 - **School Information System**: no links (local desktop app, expected)
+
+## Contact method — decision made
+
+Considered a proper contact form via Formspree or EmailJS, but decided against it as
+unnecessary complexity for a simple portfolio. **Current approach is final for now:**
+a `mailto:` link ("Say Hello" button) plus a copy-to-clipboard fallback ("Copy Email"
+button + inline copy icon next to the email address in the Contact section), so
+visitors without a configured email client can still grab the address. Implemented via
+`src/hooks/useCopyToClipboard.js`. Do not re-suggest a contact form unless Kent brings
+it up again.
 
 ## Known inconsistencies / things to double check with Kent
 
@@ -188,7 +201,6 @@ cv: null                                  // STILL MISSING — no CV file/link y
    dropped in.
 3. **CV**: still `null` everywhere (Navbar, Hero, Contact all show "TODO: Add CV" /
    disabled button). Needs an actual file or hosted link.
-4. **LinkedIn URL**: still a placeholder (`/in/TODO`).
 
 ## Design system reference
 
@@ -213,16 +225,18 @@ cv: null                                  // STILL MISSING — no CV file/link y
 - [x] All 3 experiments wired with real images
 - [x] Pushed to GitHub, prepped for Vercel (`vercel.json` + README deploy notes)
 - [x] Navbar logo + Hero profile photo added
-- [x] Real social links wired in except LinkedIn + CV
+- [x] Real social links wired in except CV
 - [x] SEO meta tags, OG tags, favicon, semantic headings in `index.html`
 - [x] Reduced-motion support, focus-visible states, alt text throughout
 - [x] Image optimization pass done (see above)
 - [x] Production build verified clean (`npm run build`)
+- [x] Copy-to-clipboard email fallback added to Contact section (see above);
+      EmailJS/Formspree contact form considered and declined as overkill for now
 
 ## Suggested next steps (not yet done — pick up here)
 
-1. Get Kent's real **LinkedIn URL** and a **CV file/link**, wire into
-   `src/data/social.js`.
+1. Get Kent a **CV file/link** and wire it into `src/data/social.js` (`cv: null`
+   still). LinkedIn URL is already resolved.
 2. Resolve the `logo.jpg` question (item #2 above) — replace with an actual logo mark
    if the current file was a mistake.
 3. Decide on Navbar vs Footer branding consistency ("JKYB" vs "KENT").
@@ -231,9 +245,8 @@ cv: null                                  // STILL MISSING — no CV file/link y
 5. Optional polish (not required for V1, only if Kent wants to go further):
    - OG image (`/og-image.png`) referenced in `index.html` doesn't exist yet — either
      add a real one or remove the meta tags referencing it.
-   - Consider a contact form (e.g. Formspree) instead of plain `mailto:` if Kent wants
-     that later.
-   - Consider adding a `vercel.json` / deployment check when ready to ship live.
+   - Contact form via EmailJS/Formspree: explicitly declined by Kent, do not
+     re-suggest unless he brings it up again (see "Contact method" section above).
 6. When ready to move projects to a database (Supabase/PostgreSQL was mentioned as a
    future option): replace the static `projects` array in `src/data/projects.js` with
    an async fetch, keeping the exact same object shape so `ProjectCard`,
@@ -241,7 +254,12 @@ cv: null                                  // STILL MISSING — no CV file/link y
 
 ## Deployment target
 
-Vercel (mentioned in original brief, and one of the projects — Fundraising
-Visualizer — is already deployed there). No deployment has been configured yet in
-this repo (no `vercel.json`); a plain Vite React app deploys to Vercel with zero
-config in most cases (`npm run build`, output dir `dist`).
+Vercel. `vercel.json` is already in the repo (framework: vite, build command
+`npm run build`, output directory `dist`, SPA rewrite so `/work/:id` resolves
+correctly on refresh/direct load). Code is pushed to GitHub at
+https://github.com/Jkyb/JKYB-Personal-Portfolio.
+
+**Not yet confirmed:** whether the repo has actually been imported/connected in the
+Vercel dashboard and deployed live. If picking this up fresh, check with Kent whether
+a live URL already exists, and if not, walk him through importing the repo at
+https://vercel.com/new (see README.md "Deployment" section for the exact steps).
