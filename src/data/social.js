@@ -4,5 +4,5 @@ export const socials = {
   github: "https://github.com/Jkyb",
   linkedin: "https://www.linkedin.com/in/joel-kent-bruzo-175886301/",
   youtube: "https://www.youtube.com/@JKYB2.0",
-  cv: "https://drive.google.com/file/d/1zphB0rcZbf_VsZBsTgGEAIvJvJxXluF6/view?usp=sharing",
+  cv: "https://drive.google.com/file/d/1BOb4NP0I2VtblwN6-rea1fRd7OiX0qTY/view?usp=sharing",
 };
