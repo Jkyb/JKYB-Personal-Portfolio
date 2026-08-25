@@ -32,7 +32,7 @@ export const projects = [
     id: "mana-makawat",
     title: "Mana Makawat",
     category: "3D Multiplayer Game",
-    year: "2026",
+    year: "2025",
     description:
       "A multiplayer 3D game inspired by traditional Filipino street games, including Patintero and Langit Lupa.",
     longDescription:
@@ -57,7 +57,7 @@ export const projects = [
     id: "fundraising-visualizer",
     title: "Fundraising Visualizer",
     category: "Web Application / Data Visualisation",
-    year: "2025",
+    year: "2026",
     description:
       "An interactive fundraising visualisation that connects to Google Sheets through its API and transforms fundraising progress into an intuitive visual representation.",
     longDescription:
@@ -81,7 +81,7 @@ export const projects = [
     id: "psu-campus-3d",
     title: "PSU Campus 3D Environment",
     category: "3D / Interactive Experience",
-    year: "2024",
+    year: "2026",
     description:
       "A 3D reconstruction of the university campus created for an interactive AR/3D experience for the university's 25th anniversary.",
     longDescription:
